@@ -11,7 +11,7 @@ describe("GET /api/cities/by_country/:country", () => {
 
   describe("country is a string with only letters and length >= 3", () => {
     describe("there are no results", () => {
-      test("country has both upper and lower case", async () => {
+      test("should return no cities message if country has both upper and lower case", async () => {
         const response = await request(app.callback()).get(
           `/api/cities/by_country/${testCountry2}`
         );
@@ -20,7 +20,7 @@ describe("GET /api/cities/by_country/:country", () => {
         expect(response.body).toEqual(noResults);
       });
 
-      test("country is in lower case", async () => {
+      test("should return no cities message if country is in lower case", async () => {
         const response = await request(app.callback()).get(
           `/api/cities/by_country/${testCountry2.toLowerCase()}`
         );
@@ -29,7 +29,7 @@ describe("GET /api/cities/by_country/:country", () => {
         expect(response.body).toEqual(noResults);
       });
 
-      test("country is in upper case", async () => {
+      test("should return no cities message if country is in upper case", async () => {
         const response = await request(app.callback()).get(
           `/api/cities/by_country/${testCountry2.toUpperCase()}`
         );

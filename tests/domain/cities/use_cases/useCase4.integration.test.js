@@ -10,21 +10,25 @@ describe("country has length < 3", () => {
     server.close();
   });
 
-  test("GET /api/cities/by_country/:country", async () => {
-    const response = await request(app.callback()).get(
-      `/api/cities/by_country/${shortCountry}`
-    );
+  describe("GET /api/cities/by_country/:country", () => {
+    test("should return length message",  async () => {
+      const response = await request(app.callback()).get(
+        `/api/cities/by_country/${shortCountry}`
+      );
 
-    expect(response.status).toBe(400);
-    expect(response.body).toEqual(tooShort);
-  });
+      expect(response.status).toBe(400);
+      expect(response.body).toEqual(tooShort);
+    });
+  })
   
-  test("GET /api/city/:city/country/:country", async () => {
-    const response = await request(app.callback()).get(
-      `/api/city/${shortCountry}/country/${shortCountry}`
-    );
+  describe("GET /api/city/:city/country/:country", () => {
+    test("should return length message", async () => {
+      const response = await request(app.callback()).get(
+        `/api/city/${shortCountry}/country/${shortCountry}`
+      );
 
-    expect(response.status).toBe(400);
-    expect(response.body).toEqual(tooShort);
-  });
+      expect(response.status).toBe(400);
+      expect(response.body).toEqual(tooShort);
+    });
+  })
 });

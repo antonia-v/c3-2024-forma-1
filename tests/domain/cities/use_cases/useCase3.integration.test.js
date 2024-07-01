@@ -13,7 +13,7 @@ describe("GET /api/cities/by_country/:country", () => {
 
   describe("country is a string with length >= 3", () => {
     describe("country has alphanumeric characters", () => {
-      test("country has both upper and lower case", async () => {
+      test("should return no numbers message if country has both upper and lower case", async () => {
         const response = await request(app.callback()).get(
           `/api/cities/by_country/${alphaNumCountry}`
         );
@@ -22,7 +22,7 @@ describe("GET /api/cities/by_country/:country", () => {
         expect(response.body).toEqual(noNums);
       });
 
-      test("country is in lower case", async () => {
+      test("should return no numbers message if country is in lower case", async () => {
         const response = await request(app.callback()).get(
           `/api/cities/by_country/${alphaNumCountry.toLowerCase()}`
         );
@@ -31,7 +31,7 @@ describe("GET /api/cities/by_country/:country", () => {
         expect(response.body).toEqual(noNums);
       });
 
-      test("country is in upper case", async () => {
+      test("should return no numbers message if country is in upper case", async () => {
         const response = await request(app.callback()).get(
           `/api/cities/by_country/${alphaNumCountry.toUpperCase()}`
         );
@@ -41,7 +41,7 @@ describe("GET /api/cities/by_country/:country", () => {
       });
     });
     describe("country has only numeric characters", () => {
-      test("country has both upper and lower case", async () => {
+      test("should return no numbers message if country has both upper and lower case", async () => {
         const response = await request(app.callback()).get(
           `/api/cities/by_country/${numCountry}`
         );
@@ -50,7 +50,7 @@ describe("GET /api/cities/by_country/:country", () => {
         expect(response.body).toEqual(noNums);
       });
 
-      test("country is in lower case", async () => {
+      test("should return no numbers message if country is in lower case", async () => {
         const response = await request(app.callback()).get(
           `/api/cities/by_country/${numCountry.toLowerCase()}`
         );
@@ -59,7 +59,7 @@ describe("GET /api/cities/by_country/:country", () => {
         expect(response.body).toEqual(noNums);
       });
 
-      test("country is in upper case", async () => {
+      test("should return no numbers message if country is in upper case", async () => {
         const response = await request(app.callback()).get(
           `/api/cities/by_country/${numCountry.toUpperCase()}`
         );
