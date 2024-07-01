@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "jest --runInBand",
+    "test": "jest --runInBand --silent --verbose",
     "build": "babel src --out-dir dist --copy-files",
     "start": "babel src --out-dir dist --copy-files && node dist/index.js",
     "start:dev": "nodemon --exec babel-node src/index.js"
@@ -16,7 +16,6 @@
     "koa": "^2.13.4",
     "koa-body": "^4.2.0",
     "koa-router": "^10.1.1",
-    "sinon": "^14.0.0",
     "supertest": "^6.2.3"
   },
   "devDependencies": {
